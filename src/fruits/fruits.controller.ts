@@ -23,7 +23,7 @@ export class FruitsController {
       name: string;
       description: string;
       benefits: string;
-      drawbacks: string;
+      drawbacks?: string;
     },
   ) {
     return this.fruitsService.create(createFruitDto);

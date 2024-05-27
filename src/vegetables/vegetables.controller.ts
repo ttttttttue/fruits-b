@@ -3,16 +3,16 @@ import { VegetablesService } from './vegetables.service';
 
 @Controller('vegetables')
 export class VegetablesController {
-  constructor(private readonly vegService: VegetablesService) {}
+  constructor(private readonly vegetablesService: VegetablesService) {}
 
   @Get()
   findAll() {
-    return this.vegService.findAll();
+    return this.vegetablesService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.vegService.findOne(id);
+    return this.vegetablesService.findOne(id);
   }
 
   @Post()
@@ -23,9 +23,9 @@ export class VegetablesController {
       name: string;
       description: string;
       benefits: string;
-      drawbacks: string;
+      drawbacks?: string;
     },
   ) {
-    return this.vegService.create(createVegetablesDto);
+    return this.vegetablesService.create(createVegetablesDto);
   }
 }
