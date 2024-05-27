@@ -1,22 +1,31 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { FruitsService, Fruit } from './fruits.service';
+import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { FruitsService } from './fruits.service';
 
 @Controller('fruits')
 export class FruitsController {
-    constructor(private readonly fruitsService: FruitsService) {}
+  constructor(private readonly fruitsService: FruitsService) {}
 
-    @Get()
-    findAll(): Fruit[] {
-        return this.fruitsService.findAll();
-    }
+  @Get()
+  findAll() {
+    return this.fruitsService.findAll();
+  }
 
-    @Get(':id')
-    findOne(@Param('id') id: string): Fruit {
-        return this.fruitsService.findOne(id);
-    }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.fruitsService.findOne(id);
+  }
 
-    @Post()
-    create(@Body() fruit: Fruit) {
-        this.fruitsService.create(fruit);
-    }
+  @Post()
+  create(
+    @Body()
+    createFruitDto: {
+      id: string;
+      name: string;
+      description: string;
+      benefits: string;
+      drawbacks: string;
+    },
+  ) {
+    return this.fruitsService.create(createFruitDto);
+  }
 }
