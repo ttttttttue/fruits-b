@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { VegetablesService, Vegetables } from './vegetables.service';
+import { VegetablesService } from './vegetables.service';
 import { VegetablesController } from './vegetables.controller';
 
 @Module({

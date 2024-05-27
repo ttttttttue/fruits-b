@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { VegetablesService } from './vegetables.service';
 
-@Controller('fruits')
+@Controller('vegetables')
 export class VegetablesController {
   constructor(private readonly vegService: VegetablesService) {}
 
@@ -18,7 +18,7 @@ export class VegetablesController {
   @Post()
   create(
     @Body()
-    createFruitDto: {
+    createVegetablesDto: {
       id: string;
       name: string;
       description: string;
@@ -26,6 +26,6 @@ export class VegetablesController {
       drawbacks: string;
     },
   ) {
-    return this.vegService.create(createFruitDto);
+    return this.vegService.create(createVegetablesDto);
   }
 }

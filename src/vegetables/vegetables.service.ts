@@ -28,7 +28,6 @@ export class VegetablesService {
         'Включает в себя также витамин С и калий. Морковь содержит бета-каротин, придающий ей яркий оранжевый цвет и преобразуемый в витамин А.',
       drawbacks: '',
     },
-    // Добавьте больше фруктов и овощей по аналогии
   ];
 
   findAll(): Vegetables[] {
@@ -39,7 +38,7 @@ export class VegetablesService {
     return this.vegetables.find((veg) => veg.id === id);
   }
 
-  create(fruit: Vegetables) {
-    this.vegetables.push(fruit);
+  create(veg: Vegetables) {
+    this.vegetables.push(veg);
   }
 }
