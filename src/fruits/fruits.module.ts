@@ -1,5 +1,4 @@
-import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
-import { CorsMiddleware } from 'cors.middleware';
+import { Module } from '@nestjs/common';
 import { FruitsService } from './fruits.service';
 import { FruitsController } from './fruits.controller';
 
@@ -7,10 +6,4 @@ import { FruitsController } from './fruits.controller';
   controllers: [FruitsController],
   providers: [FruitsService],
 })
-export class FruitsModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(CorsMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
-  }
-}
+export class FruitsModule {}
